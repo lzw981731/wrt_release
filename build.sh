@@ -1,5 +1,16 @@
 #!/usr/bin/env bash
-
+# 修改默认IP
+sed -i 's/192.168.1.2/10.0.0.1/g' package/base-files/files/bin/config_generate
+# 添加额外插件
+git clone --depth=1 https://github.com/maxlicheng/luci-app-unblockmusic package/luci-app-unblockmusic
+# Alist
+git clone --depth=1 https://github.com/sbwml/luci-app-alist package/luci-app-alist
+# Themes
+git clone --depth=1 -b 18.06 https://github.com/kiddin9/luci-theme-edge package/luci-theme-edge
+git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
+git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
+git clone --depth=1 https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
+git_sparse_clone main https://github.com/haiibo/packages luci-theme-atmaterial luci-theme-opentomcat luci-theme-netgear
 set -e
 
 source /etc/profile
